@@ -131,6 +131,40 @@ Open:
 - `http://localhost:3000`
 - `http://localhost:3000/events`
 
+## End Of Work (Stop/Cleanup)
+
+When you are done working, stop background services:
+
+```bash
+docker compose -f infra/docker-compose.yml down
+```
+
+Optional: also remove Postgres data volume (this resets local DB data):
+
+```bash
+docker compose -f infra/docker-compose.yml down -v
+```
+
+Optional: remove app images to free disk (they rebuild on next run):
+
+```bash
+docker rmi infra-api:latest infra-worker:latest
+```
+
+Optional: broader Docker cleanup (removes unused images/containers/networks across your machine):
+
+```bash
+docker system prune -a
+```
+
+To start again later:
+
+```bash
+docker compose -f infra/docker-compose.yml up -d db redis
+docker compose -f infra/docker-compose.yml run --rm api alembic upgrade head
+docker compose -f infra/docker-compose.yml up -d --build api worker
+```
+
 ## Smoke Test (API)
 
 ```bash
@@ -170,4 +204,3 @@ curl -s -H "X-User-Id: $USER_ID" http://localhost:8000/events; echo
 2. Add web pages for items and orders.
 3. Integrate real marketplace adapters in Celery tasks.
 4. Add retry/backoff policy and dead-letter handling.
-
