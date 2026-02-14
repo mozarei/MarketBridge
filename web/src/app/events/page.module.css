@@ -1,0 +1,77 @@
+.page {
+  min-height: 100vh;
+  padding: 2rem;
+  background: linear-gradient(160deg, #f8fafc 0%, #eef2ff 100%);
+  color: #0f172a;
+}
+
+.headerRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.backLink {
+  color: #1d4ed8;
+  font-weight: 600;
+}
+
+.empty {
+  padding: 1rem;
+  background: white;
+  border-radius: 0.5rem;
+  border: 1px solid #e2e8f0;
+}
+
+.tableWrap {
+  overflow: auto;
+  background: white;
+  border-radius: 0.75rem;
+  border: 1px solid #e2e8f0;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 900px;
+}
+
+.table th,
+.table td {
+  text-align: left;
+  padding: 0.75rem;
+  border-bottom: 1px solid #e2e8f0;
+  vertical-align: top;
+  font-size: 0.9rem;
+}
+
+.badge {
+  display: inline-block;
+  padding: 0.15rem 0.5rem;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  font-weight: 700;
+}
+
+.started {
+  background: #fef3c7;
+  color: #92400e;
+}
+
+.succeeded {
+  background: #dcfce7;
+  color: #166534;
+}
+
+.failed {
+  background: #fee2e2;
+  color: #991b1b;
+}
+
+.job {
+  max-width: 220px;
+  word-break: break-all;
+}
